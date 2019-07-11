@@ -1,4 +1,88 @@
 # 一个java class文件逆向小工具
-进度：文件解析开发中  2019-07-10<br>
-最终效果：能够可视化的展示class文件的组成。<br>
-复习去了………………
+研发记录：
+
+时间：2019-07-10
+
+进度：文件解析开发中  
+
+时间：2019-07-11-23:00 -  2019-07-11-01:00
+
+进度：常量池能够解析了，目前还需要注意特殊处理的地方就是CONSTANT_Utf8_info。
+
+原因：
+
+| CONSTANT_Utf8_info | utf-8缩略编码字符串 | tag                           | u1   | 值为1 |
+| ------------------ | ------------------- | ----------------------------- | ---- | ----- |
+| length             | u2                  | utf-8缩略编码字符串占用字节数 |      |       |
+| bytes              | u1                  | 长度为length的utf-8           |      |       |
+
+因为此类u2部分是用来标识所占用的字符数量所以需要重新截取和处理字符串。
+
+基本解析已经实现:
+
+```java
+private ConstantMemberInfo getConstantInfoIndex(int tag) {
+    ConstantMemberInfo constantMemberInfo = new ConstantMemberInfo();
+    switch (tag) {
+        case TagInfo.CONSTANT_UTF8:
+            constantMemberInfo.setConstantName("CONSTANT_Utf8_info");
+            constantMemberInfo.setConstantSize(3);
+            constantMemberInfo.setConstantType("u2;u1;");
+            return constantMemberInfo;
+        case TagInfo.CONSTANT_INTEGER:
+            constantMemberInfo.setConstantName("CONSTANT_Integer_info");
+            constantMemberInfo.setConstantSize(4);
+            constantMemberInfo.setConstantType("u4;");
+            return constantMemberInfo;
+        case TagInfo.CONSTANT_FLOAT:
+            constantMemberInfo.setConstantName("CONSTANT_Float_info");
+            constantMemberInfo.setConstantSize(4);
+            constantMemberInfo.setConstantType("u4;");
+            return constantMemberInfo;
+        case TagInfo.CONSTANT_LONG:
+            constantMemberInfo.setConstantName("CONSTANT_Long_info");
+            constantMemberInfo.setConstantSize(8);
+            constantMemberInfo.setConstantType("u8;");
+            return constantMemberInfo;
+        case TagInfo.CONSTANT_DOUBLE:
+            constantMemberInfo.setConstantName("CONSTANT_Double_info");
+            constantMemberInfo.setConstantSize(8);
+            constantMemberInfo.setConstantType("u8;");
+            return constantMemberInfo;
+        case TagInfo.CONSTANT_CLASS:
+            constantMemberInfo.setConstantName("CONSTANT_Class_info");
+            constantMemberInfo.setConstantSize(2);
+            constantMemberInfo.setConstantType("u2;");
+            return constantMemberInfo;
+        case TagInfo.CONSTANT_STRING:
+            constantMemberInfo.setConstantName("CONSTANT_String_info");
+            constantMemberInfo.setConstantSize(2);
+            constantMemberInfo.setConstantType("u2;");
+            return constantMemberInfo;
+        case TagInfo.CONSTANT_FIELD_REF:
+            constantMemberInfo.setConstantName("CONSTANT_Fieldref_info");
+            constantMemberInfo.setConstantSize(4);
+            constantMemberInfo.setConstantType("u2;u2;");
+            return constantMemberInfo;
+        case TagInfo.CONSTANT_METHOD_REF:
+            constantMemberInfo.setConstantName("CONSTANT_Methodref_info");
+            constantMemberInfo.setConstantSize(4);
+            constantMemberInfo.setConstantType("u2;u2;");
+            return constantMemberInfo;
+        case TagInfo.CONSTANT_INTERFACE_METHOD_REF:
+            constantMemberInfo.setConstantName("CONSTANT_InterfaceMethodref_info");
+            constantMemberInfo.setConstantSize(4);
+            constantMemberInfo.setConstantType("u2;u2;");
+            return constantMemberInfo;
+        case TagInfo.CONSTANT_NAME_AND_TYPE:
+            constantMemberInfo.setConstantName("CONSTANT_NameAndType_info");
+            constantMemberInfo.setConstantSize(4);
+            constantMemberInfo.setConstantType("u2;u2;");
+            return constantMemberInfo;
+        default:
+            System.out.println("常量池读取完毕！");
+    }
+    return constantMemberInfo;
+```
+
+碎了，碎了，明早还要滚起来复习！

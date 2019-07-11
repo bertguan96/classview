@@ -49,12 +49,14 @@ public class FileUtils {
         for (int i = 0; i < sw.toString().length(); i++) {
             if(i %32 == 0 && i != 0) {
                 bytes.add(byteReaderOneLine.toString());
-                byteReaderOneLine = new StringBuffer();
+                // 删除当前缓冲
+                byteReaderOneLine.delete(0, byteReaderOneLine.length());
+                byteReaderOneLine.append(bytesCharArrys[i]);
             } else {
                 byteReaderOneLine.append(bytesCharArrys[i]);
             }
         }
-
+//        System.out.println(bytes.toString());
         return bytes;
     }
 
@@ -69,10 +71,10 @@ public class FileUtils {
         return bytes.substring((startIndex-1)*2,endIndex*2);
     }
 
-//    public static void main(String[] args) throws IOException {
-//        String filepath = "C:\\Users\\gjt\\Desktop\\ClassFileTest.class";
-//
-//        FileUtils.readClassFile(filepath);
-//    }
+    public static void main(String[] args) throws IOException {
+        String filepath = "C:\\Users\\gjt\\Desktop\\ClassFileTest.class";
+
+        FileUtils.readClassFile(filepath);
+    }
 
 }
