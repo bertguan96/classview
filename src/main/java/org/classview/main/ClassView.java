@@ -59,6 +59,20 @@ public class ClassView {
         System.out.println(FileUtils.readBytesByIndex(stringBytes,index-1,index));
         // 指针后指
         index+=1;
+        System.out.println("this_class: " + FileUtils.readBytesByIndex(stringBytes,index,index+=1));
+        // 指针后指
+        index+=1;
+        System.out.println("super_class: " + FileUtils.readBytesByIndex(stringBytes,index,index+=1));
+        index+=1;
+        int interfaceCount = Integer.parseInt(FileUtils.readBytesByIndex(stringBytes,index,index+=1), 16);
+        System.out.println("interfaces_count: " + interfaceCount);
+        if(interfaceCount == 0) {
+            System.out.println("接口索引集合为空！");
+            index+=1;
+            int fieldsCount = Integer.parseInt(FileUtils.readBytesByIndex(stringBytes,index,index+=1), 16);
+            System.out.println("fields_count:" + fieldsCount);
+        }
+
     }
 
     private void startReadConstantInfo(int startIndex,String bytes,int i) {
