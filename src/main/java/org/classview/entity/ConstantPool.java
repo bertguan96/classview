@@ -19,7 +19,7 @@ public class ConstantPool {
      * 成员变量
      * 一个hashmap 对应一个 类似于 u1 - 1
      */
-    private List<HashMap<String,String>> constantVal;
+    private List<HashMap> constantVal;
     /**
      * 对应的标志位ID
      */
@@ -37,11 +37,11 @@ public class ConstantPool {
         this.constantFlagName = constantFlagName;
     }
 
-    public List<HashMap<String, String>> getConstantVal() {
+    public List<HashMap> getConstantVal() {
         return constantVal;
     }
 
-    public void setConstantVal(List<HashMap<String, String>> constantVal) {
+    public void setConstantVal(List<HashMap> constantVal) {
         this.constantVal = constantVal;
     }
 
@@ -59,5 +59,15 @@ public class ConstantPool {
 
     public void setConstantAddress(String constantAddress) {
         this.constantAddress = constantAddress;
+    }
+
+    @Override
+    public String toString() {
+        return "ConstantPool{" +
+                "constantFlagName='" + constantFlagName + '\'' +
+                ", constantVal=" + constantVal +
+                ", constantFlag=" + constantFlag +
+                ", constantAddress='" + constantAddress + '\'' +
+                '}';
     }
 }
