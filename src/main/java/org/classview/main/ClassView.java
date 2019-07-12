@@ -4,6 +4,7 @@ import org.classview.entity.ClassFile;
 import org.classview.entity.ConstantMemberInfo;
 import org.classview.entity.TagInfo;
 import org.classview.utils.FileUtils;
+import org.classview.utils.HexUtils;
 
 import java.io.IOException;
 import java.util.List;
@@ -43,26 +44,31 @@ public class ClassView {
 //        System.out.println("the magic number is:" + FileUtils.readBytesByIndex(stringBytes,1,4));
 //        System.out.println("the minor number is:" + FileUtils.readBytesByIndex(stringBytes,5,6));
 //        System.out.println("the major number is:" + FileUtils.readBytesByIndex(stringBytes,7,8));
-//        String constantPoolNumbers = FileUtils.readBytesByIndex(stringBytes,9,10);
-//        System.out.println("the constant pool size is:" + (Integer.parseInt(constantPoolNumbers, 16)-1));
+        String constantPoolNumbers = FileUtils.readBytesByIndex(stringBytes,9,10);
+        System.out.println("the constant pool size is:" + (Integer.parseInt(constantPoolNumbers, 16)-1));
 //        System.out.println(FileUtils.readBytesByIndex(stringBytes,17,17));
-        classView.startReadConstantInfo(ClassView.index,stringBytes);
-        classView.startReadConstantInfo(ClassView.index,stringBytes);
-        classView.startReadConstantInfo(ClassView.index,stringBytes);
-        classView.startReadConstantInfo(ClassView.index,stringBytes);
-        classView.startReadConstantInfo(ClassView.index,stringBytes);
-        classView.startReadConstantInfo(ClassView.index,stringBytes);
-        classView.startReadConstantInfo(ClassView.index,stringBytes);
-        classView.startReadConstantInfo(ClassView.index,stringBytes);
-        classView.startReadConstantInfo(ClassView.index,stringBytes);
-        classView.startReadConstantInfo(ClassView.index,stringBytes);
-        classView.startReadConstantInfo(ClassView.index,stringBytes);
-        classView.startReadConstantInfo(ClassView.index,stringBytes);
-        System.out.println();
+
+        for (int i = 1; i < (Integer.parseInt(constantPoolNumbers, 16)) - 1; i++) {
+            System.out.println();
+            System.out.println("===================================");
+
+            classView.startReadConstantInfo(ClassView.index,stringBytes,i);
+            System.out.println("===================================");
+            System.out.println();
+        }
+        System.out.println(FileUtils.readBytesByIndex(stringBytes,index-1,index));
+        // 指针后指
+        index+=1;
     }
 
-    private void startReadConstantInfo(int startIndex,String bytes) {
+    private void startReadConstantInfo(int startIndex,String bytes,int i) {
         int tag = getTag(startIndex,bytes);
+        if(tag == 0) {
+            System.out.println("常量池读取完成");
+            // 如果标志位为0，那么直接结束
+            return;
+        }
+        System.out.println("第" + i + "个常量:");
         System.out.println("标志位ID: " + tag);
         ConstantMemberInfo memberSize = getConstantInfoIndex(tag);
         System.out.println("常量标志名称：" + memberSize.getConstantName());
@@ -76,40 +82,64 @@ public class ClassView {
         String[] constantMemberTypes = memberSize.getConstantType().split(";");
         int memberIndex = 0;
         int poolSize = 1;
+        int u1Size = 0;
+        System.out.println("参数分析");
         for (String menberType : constantMemberTypes) {
             // 目前只支持U2
             if(menberType.equals("u2")){
+
                 System.out.println("变量类型是:"+ menberType);
                 int typeSize = 4;
-                System.out.println(Integer.parseInt(str.substring(memberIndex,poolSize * typeSize),16));
+                int u2Value = Integer.parseInt(str.substring(memberIndex,poolSize * typeSize),16);
+                System.out.println(u2Value);
                 memberIndex+=typeSize;
+                if(memberSize.getConstantType().contains("u1")) {
+                    u1Size = u2Value;
+                }
                 poolSize++;
             }
             if(menberType.equals("u1")){
                 System.out.println("变量类型是:"+ menberType);
-                int typeSize = 3;
-                System.out.println(Integer.parseInt(str.substring(memberIndex,poolSize * typeSize),16));
+                int typeSize = 4;
+                ClassView.index = ClassView.index + u1Size - 1;
+                String newStr = FileUtils.readBytesByIndex(bytes,index,ClassView.index);
+                System.out.println("经过处理之后的新字符串是:"+newStr);
+                int strLen = newStr.length()/2;
+                System.out.println("类型是：utf-8,值是："+HexUtils.hexStr2Str(newStr.substring(memberIndex,poolSize * strLen)));
                 memberIndex+=typeSize;
                 poolSize++;
             }
             if(menberType.equals("u4")){
                 System.out.println("变量类型是:"+ menberType);
                 int typeSize = 8;
-                System.out.println(Integer.parseInt(str.substring(memberIndex,poolSize * typeSize),16));
+                String u4Str = str.substring(memberIndex,poolSize * typeSize);
+                // 如果是float类型单独处理
+                if(memberSize.getConstantName().equals("CONSTANT_Float_info")) {
+                    System.out.println("数据类型是float，变量值:" + Float.intBitsToFloat(Integer.valueOf(u4Str,16)) + "f");
+                } else {
+                    System.out.println("变量值:" + Integer.parseInt(u4Str,16));
+                }
                 memberIndex+=typeSize;
                 poolSize++;
             }
             if(menberType.equals("u8")){
                 System.out.println("变量类型是:"+ menberType);
                 int typeSize = 16;
-                System.out.println(Integer.parseInt(str.substring(memberIndex,poolSize * typeSize),16));
+                String u4Str = str.substring(memberIndex,poolSize * typeSize);
+                // 如果是float类型单独处理
+                if(memberSize.getConstantName().equals("CONSTANT_Double_info")) {
+                    System.out.println("数据类型是double,变量值:" + Double.longBitsToDouble(Long.parseLong(u4Str,16)) + "f");
+                } else {
+                    System.out.println("变量值:" +Long.parseLong(str.substring(memberIndex,poolSize * typeSize),16));
+                }
+
                 memberIndex+=typeSize;
                 poolSize++;
             }
         }
         ClassView.index += 1;
         System.out.println("");
-        System.out.println("当前指针位置:" + ClassView.index);
+        System.out.println("执行完成，当前指针位置:" + ClassView.index);
     }
 
     /**
@@ -120,7 +150,6 @@ public class ClassView {
      */
     private int getTag(int index,String bytes) {
         String tagAddr = FileUtils.readBytesByIndex(bytes,index,index);
-        System.out.println("tag addr is： " + tagAddr);
         int tagNumber = Integer.parseInt( tagAddr, 16);
         ClassView.index = index + 1;
         return tagNumber;
@@ -187,7 +216,7 @@ public class ClassView {
             default:
                 System.out.println("常量池读取完毕！");
         }
-        return constantMemberInfo;
+        return null;
     }
 }
 

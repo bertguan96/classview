@@ -1,11 +1,11 @@
 # 一个java class文件逆向小工具
 研发记录：
 
-时间：2019-07-10
+**时间：2019-07-10**
 
 进度：文件解析开发中  
 
-时间：2019-07-11-23:00 -  2019-07-11-01:00
+**时间：2019-07-11-23:00 -  2019-07-11-01:00**
 
 进度：常量池能够解析了，目前还需要注意特殊处理的地方就是CONSTANT_Utf8_info。
 
@@ -85,4 +85,45 @@ private ConstantMemberInfo getConstantInfoIndex(int tag) {
     return constantMemberInfo;
 ```
 
-碎了，碎了，明早还要滚起来复习！
+**时间：2019-07-12-12:14 -  2019-07-12-13:24**
+
+开发进度：完成常量池解析功能（代码乱，待封装），读取accessflag完成。（待计算转化）
+
+```java
+public class AccFlag {
+    /**
+     * 是否为public类型
+     */
+    public static final String ACC_PUBLIC = "0x0001";
+    /**
+     * 是否被声明为final，只有类可设置
+     */
+    public static final String ACC_FINAL = "0x0010";
+    /**
+     * 是否允许使用invokespecial字节码指令，JDK1.2以后编译出来的类这个标志为真
+     */
+    public static final String ACC_SUPER = "0x0020";
+    /**
+     * 标识这是一个接口
+     */
+    public static final String ACC_INTERFACE = "0x0200";
+    /**
+     * 是否为abstract类型，对于接口和抽象类，此标志为真，其它类为假
+     */
+    public static final String ACC_ABSTRACT = "0x0400";
+    /**
+     * 标识别这个类并非由用户代码产生
+     */
+    public static final String ACC_SYNTHETIC = "0x1000";
+    /**
+     * 标识这是一个注解
+     */
+    public static final String ACC_ANNOTATION = "0x2000";
+    /**
+     * 标识这是一个枚举
+     */
+    public static final String ACC_ENUM = "0x4000";
+
+}
+```
+
