@@ -5,6 +5,7 @@ import org.classview.core.info.ConstantInfo;
 import org.classview.core.entity.ClassFile;
 import org.classview.utils.FileUtils;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -27,8 +28,9 @@ public class ClassView {
         return stringBuffer.toString();
     }
 
-    public static void main(String[] args) throws IOException {
-        if(args.length == 0) {
+    public ClassFile getMessage(File file) throws IOException {
+        String filepath = file.getPath();
+        if(filepath.length() == 0) {
             try {
                 throw new Exception("请填写需要解析的class文件的地址！");
             } catch (Exception e) {
@@ -36,7 +38,7 @@ public class ClassView {
             }
         }
 //        String filepath = "C:\\Users\\gjt\\Desktop\\ClassFileTest.class";
-        String filepath = args[0];
+        //String filepath = args[0];
         // 分割输入的路径
         String[] filePaths = filepath.split("\\\\");
         // 提取文件名称
@@ -64,6 +66,7 @@ public class ClassView {
             classFile.setFieldsCount(fieldsCount);
             index+=1;
         }
+        return classFile;
 
     }
 

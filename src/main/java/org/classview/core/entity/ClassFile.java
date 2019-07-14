@@ -1,5 +1,7 @@
 package org.classview.core.entity;
 
+import java.util.Arrays;
+
 /**
  * @author gjt
  * @version 1.0
@@ -169,5 +171,25 @@ public class ClassFile {
 
     public void setAttributes(AttributeInfo[] attributes) {
         this.attributes = attributes;
+    }
+
+    @Override
+    public String toString() {
+        return "ClassFile{" +
+                "magic='" + magic + '\'' +
+                ", minorVersion='" + minorVersion + '\'' +
+                ", majorVersion='" + majorVersion + '\'' +
+                ", constantPool=" + constantPool +
+                ", accessFlags='" + accessFlags + '\'' +
+                ", thisClass='" + thisClass + '\'' +
+                ", superClass='" + superClass + '\'' +
+                ", interfaceClass='" + interfaceClass + '\'' +
+                ", fields=" + Arrays.toString(fields) +
+                ", methods=" + Arrays.toString(methods) +
+                ", attributes=" + Arrays.toString(attributes) +
+                ", interfaceCount=" + interfaceCount +
+                ", fieldsCount=" + fieldsCount +
+                ", constantInfoCount=" + constantInfoCount +
+                '}';
     }
 }
