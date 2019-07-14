@@ -1,10 +1,10 @@
-package org.classview.core;
+package org.classview.core.info;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
-import org.classview.entity.ConstantMemberInfo;
-import org.classview.entity.ConstantPool;
-import org.classview.entity.TagInfo;
+import org.classview.core.entity.ConstantMemberInfo;
+import org.classview.core.entity.ConstantPool;
+import org.classview.core.entity.TagInfo;
 import org.classview.main.ClassView;
 import org.classview.utils.FileUtils;
 import org.classview.utils.HexUtils;

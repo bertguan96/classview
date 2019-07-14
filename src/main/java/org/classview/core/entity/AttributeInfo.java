@@ -1,4 +1,4 @@
-package org.classview.entity;
+package org.classview.core.entity;
 
 /**
  * @author gjt
@@ -6,5 +6,5 @@ package org.classview.entity;
  * @date 2019/7/10 18:20
  * @Description 这里写描述内容
  */
-public class MemberInfo {
+public class AttributeInfo {
 }

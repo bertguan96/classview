@@ -1,4 +1,4 @@
-package org.classview.entity;
+package org.classview.core.entity;
 
 /**
  * @author gjt

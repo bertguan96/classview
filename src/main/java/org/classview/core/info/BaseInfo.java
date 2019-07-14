@@ -1,6 +1,6 @@
-package org.classview.core;
+package org.classview.core.info;
 
-import org.classview.entity.ClassFile;
+import org.classview.core.entity.ClassFile;
 import org.classview.utils.FileUtils;
 
 /**

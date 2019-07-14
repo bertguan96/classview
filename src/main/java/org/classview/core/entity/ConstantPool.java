@@ -1,4 +1,4 @@
-package org.classview.entity;
+package org.classview.core.entity;
 
 import java.util.HashMap;
 import java.util.List;

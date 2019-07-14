@@ -1,12 +1,9 @@
 package org.classview.main;
 
-import org.classview.core.BaseInfo;
-import org.classview.core.ConstantInfo;
-import org.classview.entity.ClassFile;
-import org.classview.entity.ConstantMemberInfo;
-import org.classview.entity.TagInfo;
+import org.classview.core.info.BaseInfo;
+import org.classview.core.info.ConstantInfo;
+import org.classview.core.entity.ClassFile;
 import org.classview.utils.FileUtils;
-import org.classview.utils.HexUtils;
 
 import java.io.IOException;
 import java.util.List;
