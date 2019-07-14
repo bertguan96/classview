@@ -40,7 +40,7 @@ public class ConstantInfo{
             ConstantInfo.analyticalConstants(ClassView.index, bytes, i);
         }
         JSONArray array= JSONArray.parseArray(JSON.toJSONString(constantPools));
-        FileUtils.writeConstantInfoByJson(constantPools.toString(),new File(fileName + "_constant_info.json"));
+        FileUtils.writeConstantInfoByJson(array.toJSONString(),new File(fileName + "_constant_info.json"));
         return constantPools;
     }
 
