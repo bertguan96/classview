@@ -9,8 +9,5 @@
         <module name="classview" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="classview" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>
