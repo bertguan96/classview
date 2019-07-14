@@ -5,6 +5,7 @@ import org.classview.core.info.ConstantInfo;
 import org.classview.core.entity.ClassFile;
 import org.classview.utils.FileUtils;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -27,8 +28,9 @@ public class ClassView {
         return stringBuffer.toString();
     }
 
-    public static void main(String[] args) throws IOException {
-        if(args.length == 0) {
+    public String getMessage(File file) throws IOException {
+        String filepath = file.getPath();
+        if(filepath.length() == 0) {
             try {
                 throw new Exception("请填写需要解析的class文件的地址！");
             } catch (Exception e) {
@@ -36,7 +38,7 @@ public class ClassView {
             }
         }
 //        String filepath = "C:\\Users\\gjt\\Desktop\\ClassFileTest.class";
-        String filepath = args[0];
+        //String filepath = args[0];
         // 分割输入的路径
         String[] filePaths = filepath.split("\\\\");
         // 提取文件名称
@@ -48,21 +50,32 @@ public class ClassView {
         ClassFile classFile = baseInfo.baseInfoMessage(stringBytes);
         ConstantInfo constantInfo = new ConstantInfo();
         constantInfo.getConstantInfo(stringBytes,fileName);
-        System.out.println("access_flags: " +FileUtils.readBytesByIndex(stringBytes,index-1,index));
+        //System.out.println("access_flags: " +FileUtils.readBytesByIndex(stringBytes,index-1,index));
+
+        String accessFlags = "access_flags: " +FileUtils.readBytesByIndex(stringBytes,index-1,index) + "\n";
+
         // 指针后指
         index+=1;
-        System.out.println("this_class: " + FileUtils.readBytesByIndex(stringBytes,index,index+=1));
+        //System.out.println("this_class: " + FileUtils.readBytesByIndex(stringBytes,index,index+=1));
+        String thisClass = "this_class: " + FileUtils.readBytesByIndex(stringBytes,index,index+=1) + "\n";
+
         // 指针后指
         index+=1;
-        System.out.println("super_class: " + FileUtils.readBytesByIndex(stringBytes,index,index+=1));
+        //System.out.println("super_class: " + FileUtils.readBytesByIndex(stringBytes,index,index+=1));
+        String superClass = "super_class: " + FileUtils.readBytesByIndex(stringBytes,index,index+=1) + "\n";
+
         index+=1;
         int interfaceCount = Integer.parseInt(FileUtils.readBytesByIndex(stringBytes,index,index+=1), 16);
-        System.out.println("interfaces_count: " + interfaceCount);
+        //System.out.println("interfaces_count: " + interfaceCount);
+        String interfaces = "interfaces_count: " + interfaceCount + "\n";
+        String fields = "";
         if(interfaceCount == 0) {
             index+=1;
             int fieldsCount = Integer.parseInt(FileUtils.readBytesByIndex(stringBytes,index,index+=1), 16);
-            System.out.println("fields_count:" + fieldsCount);
+            //System.out.println("fields_count:" + fieldsCount);
+            fields = "fields_count:" + fieldsCount + "\n";
         }
+        return accessFlags + thisClass + superClass + interfaces + fields;
 
     }
 

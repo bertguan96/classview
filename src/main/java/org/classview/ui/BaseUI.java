@@ -1,6 +1,8 @@
 package org.classview.ui;
 
 import javafx.application.Application;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -9,11 +11,17 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.layout.VBoxBuilder;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextBuilder;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import org.classview.main.ClassView;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -47,36 +55,50 @@ public class BaseUI extends Application {
     public void start(Stage primaryStage) throws Exception {
         BorderPane root = new BorderPane();
 
+        VBox leftVBox = new VBox();
+
+        VBox centerVBox = new VBox();
+
+        VBox rightVBox = new VBox();
+
         Scene scene = new Scene(root,300,250, Color.WHITE);
 
         //菜单栏
         MenuBar menuBar = new MenuBar();
         menuBar.prefWidthProperty().bind(primaryStage.widthProperty());
         root.setTop(menuBar);
-        getTopMenu(menuBar,primaryStage);
-
-
-
-        primaryStage.setScene(scene);
-        primaryStage.show();
-
-
-    }
-
-    public void getTopMenu(MenuBar menuBar,Stage primaryStage){
         Menu fileMenu = new Menu("File");
         Menu openMenuItem = new Menu("Open");
         MenuItem classItem = new MenuItem("Java Class");
         openMenuItem.getItems().addAll(classItem);
+        //文本换行
+        StringProperty stringProperty = new SimpleStringProperty();
+        Text status = TextBuilder.create().x(100).y(50).build();
+        status.textProperty().bind(stringProperty);
+        final String[] result = {""};
+
         classItem.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 FileChooser fileChooser = new FileChooser();
-                FileChooser.ExtensionFilter extensionFilter = new FileChooser.ExtensionFilter("CLASS files(.class)");
+                //FileChooser.ExtensionFilter extensionFilter = new FileChooser.ExtensionFilter("CLASS files(.class)");
                 File file = fileChooser.showOpenDialog(primaryStage);
+                if (file != null) {
+                    ClassView classView = new ClassView();
+                    try {
+                       result[0] = classView.getMessage(file);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                }
                 System.out.println(file);
+                stringProperty.set(result[0]);
             }
         });
+        leftVBox.getChildren().addAll(status);
+        root.setLeft(leftVBox);
+
 
 
         fileMenu.getItems().addAll(openMenuItem);
@@ -90,5 +112,32 @@ public class BaseUI extends Application {
         Help.getItems().addAll(aboutItem);
 
         menuBar.getMenus().addAll(fileMenu,WindowMenu,Help);
+
+
+        primaryStage.setScene(scene);
+        primaryStage.show();
+
+
     }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
