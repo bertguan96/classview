@@ -160,3 +160,40 @@ public class AccFlag {
 5.获取继承类信息。
 
 发布时间：大约一周之后。
+
+## 3.运行方式
+
+在对应项目文件夹下面运行
+
+```java
+mvn compile assembly:single
+```
+
+出现如下输出即为打包成功
+
+```java
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org:classview:jar:1.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ line 21, column 21
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building classview 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-assembly-plugin:2.2-beta-5:single (default-cli) @ classview ---
+[INFO] Building jar: E:\java-workspace\classview\target\classview-1.0-SNAPSHOT-jar-with-dependencies.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2.976 s
+[INFO] Finished at: 2019-07-14T21:05:46+08:00
+[INFO] Final Memory: 9M/123M
+[INFO] ------------------------------------------------------------------------
+```
+
