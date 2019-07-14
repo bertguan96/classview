@@ -59,7 +59,6 @@ public class ClassView {
         int interfaceCount = Integer.parseInt(FileUtils.readBytesByIndex(stringBytes,index,index+=1), 16);
         System.out.println("interfaces_count: " + interfaceCount);
         if(interfaceCount == 0) {
-//            System.out.println("接口索引集合为空！");
             index+=1;
             int fieldsCount = Integer.parseInt(FileUtils.readBytesByIndex(stringBytes,index,index+=1), 16);
             System.out.println("fields_count:" + fieldsCount);
