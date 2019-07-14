@@ -11,6 +11,11 @@ import java.util.List;
  */
 public class ConstantPool {
     /**
+     * 自增
+     */
+    private int id = 0;
+
+    /**
      * 类似于 CONSTANT_Utf8_info
      * 常量成员类型
      */
@@ -34,6 +39,7 @@ public class ConstantPool {
     }
 
     public void setConstantFlagName(String constantFlagName) {
+        setId(id++);
         this.constantFlagName = constantFlagName;
     }
 
@@ -61,10 +67,19 @@ public class ConstantPool {
         this.constantAddress = constantAddress;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         return "ConstantPool{" +
-                "constantFlagName='" + constantFlagName + '\'' +
+                "id=" + id +
+                ", constantFlagName='" + constantFlagName + '\'' +
                 ", constantVal=" + constantVal +
                 ", constantFlag=" + constantFlag +
                 ", constantAddress='" + constantAddress + '\'' +

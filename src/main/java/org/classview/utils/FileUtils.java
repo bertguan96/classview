@@ -71,10 +71,33 @@ public class FileUtils {
         return bytes.substring((startIndex-1)*2,endIndex*2);
     }
 
-    public static void main(String[] args) throws IOException {
-        String filepath = "C:\\Users\\gjt\\Desktop\\ClassFileTest.class";
+//    public static void main(String[] args) throws IOException {
+//        String filepath = "C:\\Users\\gjt\\Desktop\\ClassFileTest.class";
+//
+//        FileUtils.readClassFile(filepath);
+//    }
 
-        FileUtils.readClassFile(filepath);
+    /**
+     * json格式输出文件（常量池）
+     * @param jsonString
+     * @param file
+     */
+    public static void writeConstantInfoByJson(String jsonString,File file) {
+        // 将格式化后的字符串写入文件
+        Writer write = null;
+        try {
+            write = new OutputStreamWriter(new FileOutputStream(file), "UTF-8");
+            write.write(jsonString);
+            write.flush();
+            write.close();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
 }

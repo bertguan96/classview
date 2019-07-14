@@ -1,5 +1,7 @@
 package org.classview.core;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import org.classview.entity.ConstantMemberInfo;
 import org.classview.entity.ConstantPool;
 import org.classview.entity.TagInfo;
@@ -7,6 +9,7 @@ import org.classview.main.ClassView;
 import org.classview.utils.FileUtils;
 import org.classview.utils.HexUtils;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
@@ -22,13 +25,13 @@ public class ConstantInfo{
 
 
     // 存放常量的List数组
-   private static List<ConstantPool> constantPools = new LinkedList<>();
+   private static List<ConstantPool> constantPools = new LinkedList<ConstantPool>();
 
     /**
      *  获取常量池内容
      * @param bytes
      */
-    public List<ConstantPool> getConstantInfo(String bytes) {
+    public List<ConstantPool> getConstantInfo(String bytes ,String fileName) {
         // 获得常量池数量
         Integer constantPoolCount = constantPoolNumber(bytes) - 1;
         // 循环获取
@@ -36,6 +39,8 @@ public class ConstantInfo{
             // 分析一下常量
             ConstantInfo.analyticalConstants(ClassView.index, bytes, i);
         }
+        JSONArray array= JSONArray.parseArray(JSON.toJSONString(constantPools));
+        FileUtils.writeConstantInfoByJson(constantPools.toString(),new File(fileName + "_constant_info.json"));
         return constantPools;
     }
 
@@ -53,35 +58,35 @@ public class ConstantInfo{
             return;
         }
         ConstantPool constantPool = new ConstantPool();
-        System.out.println("第" + i + "个常量:");
-        System.out.println("标志位ID: " + tag);
+//        System.out.println("第" + i + "个常量:");
+//        System.out.println("标志位ID: " + tag);
         constantPool.setConstantFlag(tag);
         ConstantMemberInfo memberSize = ConstantInfo.getConstantInfoIndex(tag);
-        System.out.println("常量标志名称：" + memberSize.getConstantName());
+//        System.out.println("常量标志名称：" + memberSize.getConstantName());
         constantPool.setConstantFlagName(memberSize.getConstantName());
-        System.out.println("常量成员所占位置大小：" + memberSize.getConstantSize());
+//        System.out.println("常量成员所占位置大小：" + memberSize.getConstantSize());
         int index = ClassView.index;
         ClassView.index += memberSize.getConstantSize() - 1;
-        System.out.println("开始位置:"+ index);
-        System.out.println("结束位置："+ClassView.index);
+//        System.out.println("开始位置:"+ index);
+//        System.out.println("结束位置："+ClassView.index);
         String str = FileUtils.readBytesByIndex(bytes,index,ClassView.index);
-        System.out.println("字段是：" + str);
+//        System.out.println("字段是：" + str);
         constantPool.setConstantAddress(str);
         String[] constantMemberTypes = memberSize.getConstantType().split(";");
         int memberIndex = 0;
         int poolSize = 1;
         int u1Size = 0;
-        System.out.println("参数分析");
+//        System.out.println("参数分析");
         List<HashMap> constantVal = new LinkedList<>();
         for (String menberType : constantMemberTypes) {
             // 采用LinkedHashmap保证数据的有序性
             HashMap hashMap = new LinkedHashMap();
             if(menberType.equals("u2")){
-                System.out.println("变量类型是:"+ menberType);
+//                System.out.println("变量类型是:"+ menberType);
                 int typeSize = 4;
                 int u2Value = Integer.parseInt(str.substring(memberIndex,poolSize * typeSize),16);
                 hashMap.put("u2",u2Value);
-                System.out.println(u2Value);
+//                System.out.println(u2Value);
                 memberIndex+=typeSize;
                 if(memberSize.getConstantType().contains("u1")) {
                     u1Size = u2Value;
@@ -89,7 +94,7 @@ public class ConstantInfo{
                 poolSize++;
             }
             if(menberType.equals("u1")){
-                System.out.println("变量类型是:"+ menberType);
+//                System.out.println("变量类型是:"+ menberType);
                 int typeSize = 4;
                 ClassView.index = ClassView.index + u1Size - 1;
                 String newStr = FileUtils.readBytesByIndex(bytes,index,ClassView.index);
@@ -97,23 +102,23 @@ public class ConstantInfo{
                 constantPool.setConstantAddress(newStr);
                 int strLen = newStr.length()/2;
                 String u1Value = HexUtils.hexStr2Str(newStr.substring(memberIndex,poolSize * strLen));
-                System.out.println("类型是：utf-8,值是："+ u1Value);
+//                System.out.println("类型是：utf-8,值是："+ u1Value);
                 hashMap.put("u1",u1Value);
                 memberIndex+=typeSize;
                 poolSize++;
             }
             if(menberType.equals("u4")){
-                System.out.println("变量类型是:"+ menberType);
+//                System.out.println("变量类型是:"+ menberType);
                 int typeSize = 8;
                 String u4Str = str.substring(memberIndex,poolSize * typeSize);
                 // 如果是float类型单独处理
                 if(memberSize.getConstantName().equals("CONSTANT_Float_info")) {
                     float u4Value = Float.intBitsToFloat(Integer.valueOf(u4Str,16));
-                    System.out.println("数据类型是float，变量值:" + u4Value + "f");
+//                    System.out.println("数据类型是float，变量值:" + u4Value + "f");
                     hashMap.put("u4",u4Value);
                 } else {
                     Integer u4Value = Integer.parseInt(u4Str,16);
-                    System.out.println("变量值:" + u4Value);
+//                    System.out.println("变量值:" + u4Value);
                     hashMap.put("u4",u4Value);
                 }
 
@@ -121,17 +126,17 @@ public class ConstantInfo{
                 poolSize++;
             }
             if(menberType.equals("u8")){
-                System.out.println("变量类型是:"+ menberType);
+//                System.out.println("变量类型是:"+ menberType);
                 int typeSize = 16;
                 String u4Str = str.substring(memberIndex,poolSize * typeSize);
                 // 如果是float类型单独处理
                 if(memberSize.getConstantName().equals("CONSTANT_Double_info")) {
                     double u8Value = Double.longBitsToDouble(Long.parseLong(u4Str,16));
-                    System.out.println("数据类型是double,变量值:" + u8Value + "f");
+//                    System.out.println("数据类型是double,变量值:" + u8Value + "f");
                     hashMap.put("u8",u8Value);
                 } else {
                     long u8Value =  Long.parseLong(str.substring(memberIndex,poolSize * typeSize),16);
-                    System.out.println("变量值:" + u8Value);
+//                    System.out.println("变量值:" + u8Value);
                     hashMap.put("u8",u8Value);
                 }
                 memberIndex+=typeSize;
@@ -142,8 +147,6 @@ public class ConstantInfo{
         constantPool.setConstantVal(constantVal);
         constantPools.add(constantPool);
         ClassView.index += 1;
-        System.out.println("");
-        System.out.println("执行完成，当前指针位置:" + ClassView.index);
     }
 
     /**

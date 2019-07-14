@@ -31,16 +31,27 @@ public class ClassView {
     }
 
     public static void main(String[] args) throws IOException {
-        String filepath = "C:\\Users\\gjt\\Desktop\\ClassFileTest.class";
+        if(args.length == 0) {
+            try {
+                throw new Exception("请填写需要解析的class文件的地址！");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+//        String filepath = "C:\\Users\\gjt\\Desktop\\ClassFileTest.class";
+        String filepath = args[0];
+        // 分割输入的路径
+        String[] filePaths = filepath.split("\\\\");
+        // 提取文件名称
+        String fileName = filePaths[filePaths.length - 1].split("\\.")[0];
         List<String> bytes =  FileUtils.readClassFile(filepath);
-        System.out.println(bytes);
         ClassView classView = new ClassView();
         String stringBytes = classView.getStrings(bytes);
         BaseInfo baseInfo = new BaseInfo();
         ClassFile classFile = baseInfo.baseInfoMessage(stringBytes);
         ConstantInfo constantInfo = new ConstantInfo();
-        constantInfo.getConstantInfo(stringBytes);
-        System.out.println(FileUtils.readBytesByIndex(stringBytes,index-1,index));
+        constantInfo.getConstantInfo(stringBytes,fileName);
+        System.out.println("access_flags: " +FileUtils.readBytesByIndex(stringBytes,index-1,index));
         // 指针后指
         index+=1;
         System.out.println("this_class: " + FileUtils.readBytesByIndex(stringBytes,index,index+=1));
@@ -51,7 +62,7 @@ public class ClassView {
         int interfaceCount = Integer.parseInt(FileUtils.readBytesByIndex(stringBytes,index,index+=1), 16);
         System.out.println("interfaces_count: " + interfaceCount);
         if(interfaceCount == 0) {
-            System.out.println("接口索引集合为空！");
+//            System.out.println("接口索引集合为空！");
             index+=1;
             int fieldsCount = Integer.parseInt(FileUtils.readBytesByIndex(stringBytes,index,index+=1), 16);
             System.out.println("fields_count:" + fieldsCount);
