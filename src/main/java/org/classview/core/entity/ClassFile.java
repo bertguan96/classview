@@ -53,6 +53,36 @@ public class ClassFile {
      */
     private AttributeInfo[] attributes;
 
+    private int interfaceCount;
+
+    private int fieldsCount;
+
+    private int constantInfoCount;
+
+    public int getInterfaceCount() {
+        return interfaceCount;
+    }
+
+    public void setInterfaceCount(int interfaceCount) {
+        this.interfaceCount = interfaceCount;
+    }
+
+    public int getFieldsCount() {
+        return fieldsCount;
+    }
+
+    public void setFieldsCount(int fieldsCount) {
+        this.fieldsCount = fieldsCount;
+    }
+
+    public int getConstantInfoCount() {
+        return constantInfoCount;
+    }
+
+    public void setConstantInfoCount(int constantInfoCount) {
+        this.constantInfoCount = constantInfoCount;
+    }
+
     public String getMagic() {
         return magic;
     }

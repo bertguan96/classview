@@ -48,20 +48,21 @@ public class ClassView {
         ClassFile classFile = baseInfo.baseInfoMessage(stringBytes);
         ConstantInfo constantInfo = new ConstantInfo();
         constantInfo.getConstantInfo(stringBytes,fileName);
-        System.out.println("access_flags: " +FileUtils.readBytesByIndex(stringBytes,index-1,index));
+        classFile.setAccessFlags(FileUtils.readBytesByIndex(stringBytes,index-1,index));
         // 指针后指
         index+=1;
-        System.out.println("this_class: " + FileUtils.readBytesByIndex(stringBytes,index,index+=1));
+        classFile.setThisClass(FileUtils.readBytesByIndex(stringBytes,index,index+=1));
         // 指针后指
         index+=1;
-        System.out.println("super_class: " + FileUtils.readBytesByIndex(stringBytes,index,index+=1));
+        classFile.setSuperClass(FileUtils.readBytesByIndex(stringBytes,index,index+=1));
         index+=1;
-        int interfaceCount = Integer.parseInt(FileUtils.readBytesByIndex(stringBytes,index,index+=1), 16);
-        System.out.println("interfaces_count: " + interfaceCount);
+        classFile.setInterfaceCount(Integer.parseInt(FileUtils.readBytesByIndex(stringBytes,index,index+=1), 16));
+        int interfaceCount = classFile.getInterfaceCount();
         if(interfaceCount == 0) {
             index+=1;
             int fieldsCount = Integer.parseInt(FileUtils.readBytesByIndex(stringBytes,index,index+=1), 16);
-            System.out.println("fields_count:" + fieldsCount);
+            classFile.setFieldsCount(fieldsCount);
+            index+=1;
         }
 
     }
