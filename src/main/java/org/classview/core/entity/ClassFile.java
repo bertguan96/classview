@@ -203,7 +203,7 @@ public class ClassFile {
         final TreeItem<String> menu1 = new TreeItem<String>("magic:" + magic);
         final TreeItem<String> menu2 = new TreeItem<String>("minorVersion:" + minorVersion);
         final TreeItem<String> menu3 = new TreeItem<String>("majorVersion:" + majorVersion);
-        final TreeItem<String> menu4 = new ConstantPool().getAllPool();
+        final TreeItem<String> menu4 = getAllConstantPool();
         final TreeItem<String> menu5 = new TreeItem<String>("accessFlags:" + accessFlags);
         final TreeItem<String> menu6 = new TreeItem<String>("thisClass:" + thisClass);
         final TreeItem<String> menu7 = new TreeItem<String>("superClass:" + superClass);
@@ -219,4 +219,19 @@ public class ClassFile {
         menu.getChildren().addAll(menu1,menu2,menu3,menu4,menu5,menu6,menu7,menu8,menu9,menu10,menu11,menu12,menu13,menu14);
         return menu;
     }
+
+    public TreeItem<String> getAllConstantPool(){
+
+        final TreeItem<String> menu = new TreeItem<String>("ConstantPool");
+        if(constantPools != null){
+            for(ConstantPool constantPool : constantPools){
+                final TreeItem<String> menu1 = constantPool.getAllPool();
+                menu.getChildren().addAll(menu1);
+            }
+        }
+        menu.setExpanded(true);
+
+        return menu;
+    }
+
 }
