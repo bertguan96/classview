@@ -4,6 +4,7 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.TreeItem;
 
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * @author gjt
@@ -28,7 +29,7 @@ public class ClassFile {
     /**
      * 常量池
      */
-    private ConstantPools constantPools;
+    private List<ConstantPool> constantPools;
     /**
      *
      */
@@ -112,11 +113,11 @@ public class ClassFile {
         this.majorVersion = majorVersion;
     }
 
-    public ConstantPools getConstantPool() {
+    public List<ConstantPool> getConstantPools() {
         return constantPools;
     }
 
-    public void setConstantPool(ConstantPools constantPools) {
+    public void setConstantPools(List<ConstantPool> constantPools) {
         this.constantPools = constantPools;
     }
 

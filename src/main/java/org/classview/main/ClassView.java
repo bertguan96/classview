@@ -1,7 +1,6 @@
 package org.classview.main;
 
 import org.classview.core.entity.ConstantPool;
-import org.classview.core.entity.ConstantPools;
 import org.classview.core.info.BaseInfo;
 import org.classview.core.info.ConstantInfo;
 import org.classview.core.entity.ClassFile;
@@ -50,9 +49,7 @@ public class ClassView implements Message {
         ClassFile classFile = baseInfo.baseInfoMessage(stringBytes);
         ConstantInfo constantInfo = new ConstantInfo();
         List<ConstantPool> constantPools = constantInfo.getConstantInfo(stringBytes,fileName);
-        ConstantPools constantPools1 = new ConstantPools();
-        constantPools1.setConstantPools(constantPools);
-        classFile.setConstantPool(constantPools1);
+        classFile.setConstantPools(constantPools);
         classFile.setAccessFlags(FileUtils.readBytesByIndex(stringBytes,index-1,index));
         // 指针后指
         index+=1;

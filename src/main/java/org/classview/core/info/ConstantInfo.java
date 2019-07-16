@@ -25,7 +25,7 @@ public class ConstantInfo{
 
 
     // 存放常量的List数组
-   private static List<ConstantPool> constantPools = new LinkedList<>();
+    static List<ConstantPool> constantPools = new LinkedList<>();
 
     /**
      *  获取常量池内容
