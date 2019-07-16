@@ -20,7 +20,7 @@ public class ClassView {
 
     public static int index = 11;
 
-    private String getStrings( List<String> bytes){
+    public String getStrings( List<String> bytes){
         StringBuffer stringBuffer = new StringBuffer();
         for(String byte1:bytes){
             stringBuffer.append(byte1);
