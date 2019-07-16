@@ -4,14 +4,12 @@ import javafx.application.Application;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.layout.VBoxBuilder;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -20,15 +18,14 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.classview.core.entity.ClassFile;
 import org.classview.main.ClassView;
+import org.classview.main.Message;
+import org.classview.main.MessageFactory;
 import org.classview.utils.FileUtils;
 
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.List;
-import java.util.Scanner;
 
 /**
  * @author jjr
@@ -102,7 +99,11 @@ public class BaseUI extends Application {
                     ClassView classView = new ClassView();
                     try {
                         String filepath = file.getPath();
-                        ClassFile classFile = classView.getMessage(file);
+                        // 使用简单工厂模式
+                        MessageFactory message = new MessageFactory();
+                        ClassView classView1 = (ClassView)message.getMessage("ClassView");
+                        ClassFile classFile = classView1.getMessage(file);
+
                         List<String> bytes =  FileUtils.readClassFile(filepath);
                         final TreeItem item = classFile.getFileMsg();
 

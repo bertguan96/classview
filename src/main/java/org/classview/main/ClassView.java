@@ -17,7 +17,7 @@ import java.util.List;
  * @date 2019/7/10 18:25
  * @Description 这里写描述内容
  */
-public class ClassView {
+public class ClassView implements Message {
 
 
     public static int index = 11;
@@ -29,7 +29,7 @@ public class ClassView {
         }
         return stringBuffer.toString();
     }
-
+    @Override
     public ClassFile getMessage(File file) throws IOException {
         String filepath = file.getPath();
         if(filepath.length() == 0) {
@@ -39,8 +39,6 @@ public class ClassView {
                 e.printStackTrace();
             }
         }
-//        String filepath = "C:\\Users\\gjt\\Desktop\\ClassFileTest.class";
-        //String filepath = args[0];
         // 分割输入的路径
         String[] filePaths = filepath.split("\\\\");
         // 提取文件名称

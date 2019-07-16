@@ -15,8 +15,8 @@ public class BaseInfo {
     public ClassFile baseInfoMessage(String bytes) {
         ClassFile baseInfo = new ClassFile();
         baseInfo.setMagic(magicNo(bytes));
-        baseInfo.setMinorVersion(minorVersion(bytes));
-        baseInfo.setMajorVersion(majorVersion(bytes));
+        baseInfo.setMinorVersion(String.valueOf(Integer.parseInt(minorVersion(bytes),16)));
+        baseInfo.setMajorVersion(String.valueOf(Integer.parseInt(majorVersion(bytes),16)));
         return baseInfo;
     }
 

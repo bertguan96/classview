@@ -63,7 +63,7 @@ public class ConstantInfo{
         constantPool.setConstantFlagName(memberSize.getConstantName());
         int index = ClassView.index;
         ClassView.index += memberSize.getConstantSize() - 1;
-        String str = FileUtils.readBytesByIndex(bytes,index,ClassView.index);
+        String str = FileUtils.readBytesByIndex(bytes,index, ClassView.index);
         constantPool.setConstantAddress(str);
         String[] constantMemberTypes = memberSize.getConstantType().split(";");
         int memberIndex = 0;
@@ -86,7 +86,7 @@ public class ConstantInfo{
             if(menberType.equals("u1")){
                 int typeSize = 4;
                 ClassView.index = ClassView.index + u1Size - 1;
-                String newStr = FileUtils.readBytesByIndex(bytes,index,ClassView.index);
+                String newStr = FileUtils.readBytesByIndex(bytes,index, ClassView.index);
                // 这里地址重新赋值
                 constantPool.setConstantAddress(newStr);
                 int strLen = newStr.length()/2;
