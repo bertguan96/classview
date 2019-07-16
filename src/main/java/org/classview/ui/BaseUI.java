@@ -9,6 +9,7 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -152,7 +153,8 @@ public class BaseUI extends Application {
         menuBar.getMenus().addAll(fileMenu,createHelpMenu());
 
 
-
+//设置窗口的图标.
+        primaryStage.getIcons().add(new Image("https://gss2.bdstatic.com/-fo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike272%2C5%2C5%2C272%2C90/sign=99446b550846f21fdd395601974d0005/3b87e950352ac65c5eb643ddf9f2b21192138ae8.jpg"));
         primaryStage.setScene(scene);
         primaryStage.setTitle(TITLE);
         primaryStage.show();
