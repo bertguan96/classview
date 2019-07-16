@@ -4,7 +4,9 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -27,7 +29,9 @@ public class AboutDialog {
 
     private static BorderPane createAboutPane(Stage dialogStage) {
         BorderPane pane = new BorderPane();
-        //pane.setTop(new Label("Classpy"));
+        //pane.setPadding(new Insets(10, 20, 30, 40));
+       // String author = "author: guanjiangtao  liujianrongcqut";
+        //pane.setBottom(new Label(author));
         pane.setCenter(createHomeLink());
         pane.setOnMouseClicked(e -> dialogStage.close());
 
