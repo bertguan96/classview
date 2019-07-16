@@ -5,7 +5,9 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TreeItem;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author gjt
@@ -94,12 +96,33 @@ public class ConstantPool {
         final TreeItem<String> menu = new TreeItem<String>("ConstantPool");
         final TreeItem<String> menu1 = new TreeItem<String>("id:" + id);
         final TreeItem<String> menu2 = new TreeItem<String>("constantFlagName:" + constantFlagName);
-        final TreeItem<String> menu3 = new TreeItem<String>("constantVal:" + constantVal);
+        final TreeItem<String> menu3 = getAllConstantVal();
         final TreeItem<String> menu4 = new TreeItem<String>("constantFlag:" + constantFlag);
         final TreeItem<String> menu5 = new TreeItem<String>("constantAddress:" + constantAddress);
         menu.setExpanded(true);
         menu.getChildren().addAll(menu1,menu2,menu3,menu4,menu5);
         return menu;
 
+    }
+
+    public TreeItem<String> getAllConstantVal(){
+        final TreeItem<String> menu = new TreeItem<String>("constantVal");
+        if(constantVal != null){
+            for (HashMap val: constantVal){
+                Map map = val;
+                Iterator iter = map.entrySet().iterator();
+                final TreeItem<String> menu0 = new TreeItem<String>(val.toString());
+                while (iter.hasNext()) {
+                    Map.Entry entry = (Map.Entry) iter.next();
+                    Object key = entry.getKey();
+                    Object value = entry.getValue();
+                    final TreeItem<String> menu1 = new TreeItem<String>(key + ": " + value);
+                    menu0.getChildren().addAll(menu1);
+                }
+                menu.getChildren().addAll(menu0);
+            }
+        }
+        menu.setExpanded(true);
+        return menu;
     }
 }

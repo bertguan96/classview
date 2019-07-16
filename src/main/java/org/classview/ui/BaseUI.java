@@ -70,7 +70,7 @@ public class BaseUI extends Application {
 
         VBox rightVBox = new VBox();
 
-        Scene scene = new Scene(root,600,500, Color.WHITE);
+        Scene scene = new Scene(root,800,600, Color.WHITE);
 
         //菜单栏
         MenuBar menuBar = new MenuBar();
@@ -84,7 +84,6 @@ public class BaseUI extends Application {
         StringProperty stringProperty = new SimpleStringProperty();
         Text status = TextBuilder.create().x(100).y(50).build();
         status.textProperty().bind(stringProperty);
-        final String[] result = {""};
 
         //获取信息
         Stage finalPrimaryStage = primaryStage;
@@ -107,21 +106,22 @@ public class BaseUI extends Application {
                         List<String> bytes =  FileUtils.readClassFile(filepath);
                         final TreeItem item = classFile.getFileMsg();
 
+                        //16进制
                         String stringBytes = classView.getStrings(bytes);
+                        String result = DisplayAll(stringBytes);
                         ScrollPane sp = new ScrollPane();
                         sp.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
                         sp.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
                         Text t = new Text( );
-                        t.setWrappingWidth(210);
-                        t.setText(stringBytes);
-                        t.setFont(new Font(14));
+                        t.setWrappingWidth(900);
+                        t.setText(result);
+                        t.setFont(new Font(12));
                         sp.setContent(t);
 
-                        result[0] = classFile.toString();
 
                         //创建一个列
                         TreeTableColumn<String,String> column = new TreeTableColumn<>("Column");
-                        column.setPrefWidth(150);
+                        column.setPrefWidth(450);
 
                         //定义列的单元格内容
                         column.setCellValueFactory((TreeTableColumn.CellDataFeatures<String, String> p) ->
@@ -130,12 +130,12 @@ public class BaseUI extends Application {
 
                         //必须加这个，不然不显示！！
                         treeTableView.getColumns().add(column);
-                        treeTableView.setMinWidth(200);
-                        treeTableView.setMinHeight(480);
+                        treeTableView.setMinWidth(450);
+                        treeTableView.setMinHeight(600);
                         treeTableView.setShowRoot(true);
-                        leftVBox.getChildren().addAll(treeTableView);
+
                         centerVBox.getChildren().addAll(sp,t);
-                        root.setLeft(leftVBox);
+                        root.setLeft(treeTableView);
                         root.setCenter(centerVBox);
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -143,27 +143,11 @@ public class BaseUI extends Application {
 
                 }
                 System.out.println(file);
-                stringProperty.set(result[0]);
             }
         });
 
-//        TreeTableView<String> treeTableView = new TreeTableView<String>(item);
-//        treeTableView.setPrefWidth(180);
-//        treeTableView.setShowRoot(true);
-//        leftVBox.getChildren().addAll(treeTableView);
-//        root.setLeft(leftVBox);
 
         fileMenu.getItems().addAll(openMenuItem);
-
-//        Menu WindowMenu = new Menu("Window");
-//        MenuItem newItem = new MenuItem("new Window");
-//        WindowMenu.getItems().addAll(newItem);
-
-//        Menu Help = new Menu("Help");
-//        MenuItem aboutItem = new MenuItem("About");
-//        aboutItem.setOnAction(e -> AboutDialog.showDialog());
-//        aboutItem.setMnemonicParsing(true);
-//        Help.getItems().addAll(aboutItem);
 
         menuBar.getMenus().addAll(fileMenu,createHelpMenu());
 
@@ -197,6 +181,18 @@ public class BaseUI extends Application {
         }
 
         return menu;
+    }
+
+    private String DisplayAll(String value){
+
+
+        StringBuffer stringBuilder1=new StringBuffer(value);
+
+        for(int i = stringBuilder1.length() ;i > 0;i = i - 2){
+            stringBuilder1.insert(i,"\t");
+        }
+        String newValue = new String(stringBuilder1);
+        return newValue;
     }
 
 
