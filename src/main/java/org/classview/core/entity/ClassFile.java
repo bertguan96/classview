@@ -28,7 +28,7 @@ public class ClassFile {
     /**
      * 常量池
      */
-    private ConstantPool constantPool;
+    private ConstantPools constantPools;
     /**
      *
      */
@@ -112,12 +112,12 @@ public class ClassFile {
         this.majorVersion = majorVersion;
     }
 
-    public ConstantPool getConstantPool() {
-        return constantPool;
+    public ConstantPools getConstantPool() {
+        return constantPools;
     }
 
-    public void setConstantPool(ConstantPool constantPool) {
-        this.constantPool = constantPool;
+    public void setConstantPool(ConstantPools constantPools) {
+        this.constantPools = constantPools;
     }
 
     public String getAccessFlags() {
@@ -182,7 +182,7 @@ public class ClassFile {
                 "magic='" + magic + '\'' +  '\n' +
                 ", minorVersion='" + minorVersion + '\'' + '\n' +
                 ", majorVersion='" + majorVersion + '\'' + '\n' +
-                ", constantPool=" + constantPool + '\n' +
+                ", constantPool=" + constantPools + '\n' +
                 ", accessFlags='" + accessFlags + '\'' + '\n' +
                 ", thisClass='" + thisClass + '\'' + '\n' +
                 ", superClass='" + superClass + '\'' + '\n' +
