@@ -68,7 +68,7 @@ public class BaseUI extends Application {
         this.root = root;
 
         VBox centerVBox = new VBox();
-        centerVBox.setPadding(new Insets(10, 0, 0, 15));
+        centerVBox.setPadding(new Insets(10, 0, 0, 50));
         centerVBox.setSpacing(10);
 
         Scene scene = new Scene(root,800,600, Color.WHITE);
@@ -113,16 +113,18 @@ public class BaseUI extends Application {
                         ScrollPane sp = new ScrollPane();
                         sp.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
                         sp.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
-                        Text t = new Text( );
-                        t.setWrappingWidth(900);
+                        Text t = new Text();
+                        t.setWrappingWidth(750);
+                        t.setX(50);
+                        t.setY(50);
                         t.setText(result);
-                        t.setFont(new Font(12));
+                        t.setFont(new Font(13));
                         sp.setContent(t);
 
 
                         //创建一个列
                         TreeTableColumn<String,String> column = new TreeTableColumn<>("Column");
-                        column.setPrefWidth(400);
+                        column.setPrefWidth(450);
 
                         //定义列的单元格内容
                         column.setCellValueFactory((TreeTableColumn.CellDataFeatures<String, String> p) ->
@@ -131,7 +133,7 @@ public class BaseUI extends Application {
 
                         //必须加这个，不然不显示！！
                         treeTableView.getColumns().add(column);
-                        treeTableView.setMinWidth(400);
+                        treeTableView.setMinWidth(450);
                         treeTableView.setMinHeight(600);
                         treeTableView.setShowRoot(true);
 
