@@ -3,24 +3,27 @@
   <component name="ChangeListManager">
     <list default="true" id="0fdd9d14-9b85-40ab-bfb7-e44da05ff9fb" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/ClassFileTest_constant_info.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Person_constant_info.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/classview_jar/classview.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/classview_jar/library/fastjson-1.2.55.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/readme.md" afterPath="$PROJECT_DIR$/readme.md" />
+      <change beforePath="$PROJECT_DIR$/Person_constant_info.json" afterPath="$PROJECT_DIR$/Person_constant_info.json" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/classview/core/entity/ClassFile.java" afterPath="$PROJECT_DIR$/src/main/java/org/classview/core/entity/ClassFile.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/classview/core/entity/ConstantPool.java" afterPath="$PROJECT_DIR$/src/main/java/org/classview/core/entity/ConstantPool.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/classview/core/entity/TagInfo.java" afterPath="$PROJECT_DIR$/src/main/java/org/classview/core/entity/TagInfo.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/classview/core/info/ConstantInfo.java" afterPath="$PROJECT_DIR$/src/main/java/org/classview/core/info/ConstantInfo.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/classview/main/ClassView.java" afterPath="$PROJECT_DIR$/src/main/java/org/classview/main/ClassView.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/classview/main/Message.java" afterPath="$PROJECT_DIR$/src/main/java/org/classview/main/Message.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/classview/ui/AboutDialog.java" afterPath="$PROJECT_DIR$/src/main/java/org/classview/ui/AboutDialog.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/classview/ui/BaseUI.java" afterPath="$PROJECT_DIR$/src/main/java/org/classview/ui/BaseUI.java" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/classview/core/entity/AccFlag.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/classview/core/entity/AttributeInfo.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/classview/core/entity/ClassFile.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/classview/core/entity/ConstantMemberInfo.class" afterPath="" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/classview/core/entity/ConstantPool.class" afterPath="$PROJECT_DIR$/target/classes/org/classview/core/entity/ConstantPool.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/classview/core/info/ConstantInfo.class" afterPath="$PROJECT_DIR$/target/classes/org/classview/core/info/ConstantInfo.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/classview/main/ClassView.class" afterPath="$PROJECT_DIR$/target/classes/org/classview/main/ClassView.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/classview/core/entity/MemberInfo.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/classview/core/entity/TagInfo.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/classview/core/info/BaseInfo.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/classview/core/info/ConstantInfo.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/classview/main/ClassView.class" afterPath="" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/classview/ui/AboutDialog.class" afterPath="$PROJECT_DIR$/target/classes/org/classview/ui/AboutDialog.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/classview/ui/FilePart.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/classview/ui/UrlHelper.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classview-1.0-SNAPSHOT-jar-with-dependencies.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/classview/ui/BaseUI$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/classview/ui/BaseUI.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/classview/utils/FileUtils.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/classview/utils/HexUtils.class" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -32,11 +35,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file leaf-file-name="ConstantInfo.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/classview/core/info/ConstantInfo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
+            <state relative-caret-position="3910">
               <caret line="183" column="46" lean-forward="false" selection-start-line="183" selection-start-column="46" selection-end-line="183" selection-end-column="46" />
               <folding />
             </state>
@@ -46,7 +49,7 @@
       <file leaf-file-name="ClassView.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/classview/main/ClassView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="62">
+            <state relative-caret-position="131">
               <caret line="51" column="25" lean-forward="false" selection-start-line="51" selection-start-column="13" selection-end-line="51" selection-end-column="25" />
               <folding />
             </state>
@@ -157,6 +160,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -164,91 +171,10 @@
               <item name="classview" type="b2602c69:ProjectViewProjectNode" />
               <item name="classview" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="classview" type="b2602c69:ProjectViewProjectNode" />
-              <item name="classview" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="classview" type="b2602c69:ProjectViewProjectNode" />
-              <item name="classview" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="classview" type="b2602c69:ProjectViewProjectNode" />
-              <item name="classview" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="classview" type="b2602c69:ProjectViewProjectNode" />
-              <item name="classview" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="classview" type="b2602c69:ProjectViewProjectNode" />
-              <item name="classview" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="classview" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="classview" type="b2602c69:ProjectViewProjectNode" />
-              <item name="classview" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="classview" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="classview" type="b2602c69:ProjectViewProjectNode" />
-              <item name="classview" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="classview" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="classview" type="b2602c69:ProjectViewProjectNode" />
-              <item name="classview" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="classview" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="info" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="classview" type="b2602c69:ProjectViewProjectNode" />
-              <item name="classview" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="org" type="462c0819:PsiDirectoryNode" />
-              <item name="classview" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -391,19 +317,18 @@
       <workItem from="1563247892225" duration="122000" />
       <workItem from="1563266652492" duration="424000" />
       <workItem from="1563277150380" duration="2573000" />
+      <workItem from="1563355838673" duration="247000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3479000" />
+    <option name="totallyTimeSpent" value="3726000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -411,22 +336,23 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299356" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="MyBatis Sql Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26126608" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26502147" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3990878" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3990878" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -444,6 +370,22 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/classview/core/info/ConstantInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4209">
+          <caret line="183" column="46" lean-forward="false" selection-start-line="183" selection-start-column="46" selection-end-line="183" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/classview/main/ClassView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1173">
+          <caret line="51" column="25" lean-forward="false" selection-start-line="51" selection-start-column="13" selection-end-line="51" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/classview/ui/BaseUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4462">
@@ -583,7 +525,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="448">
           <caret line="0" column="67816" lean-forward="true" selection-start-line="0" selection-start-column="67816" selection-end-line="0" selection-end-column="67816" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -648,7 +589,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/classview/core/info/ConstantInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
+        <state relative-caret-position="3910">
           <caret line="183" column="46" lean-forward="false" selection-start-line="183" selection-start-column="46" selection-end-line="183" selection-end-column="46" />
           <folding />
         </state>
@@ -656,7 +597,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/classview/main/ClassView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="62">
+        <state relative-caret-position="131">
           <caret line="51" column="25" lean-forward="false" selection-start-line="51" selection-start-column="13" selection-end-line="51" selection-end-column="25" />
           <folding />
         </state>

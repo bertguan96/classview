@@ -1,4 +1,0 @@
-Manifest-Version: 1.0
-Class-Path: library/fastjson-1.2.55.jar
-Main-Class: org.classview.main.ClassView
-

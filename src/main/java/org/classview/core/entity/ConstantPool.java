@@ -91,8 +91,8 @@ public class ConstantPool {
                 '}';
     }
 
-    public TreeItem<String> getAllPool(){
-        final TreeItem<String> menu = new TreeItem<String>("ConstantPool");
+    public TreeItem<String> getAllPool(int i){
+        final TreeItem<String> menu = new TreeItem<String>("ConstantPool" + i + ":" + constantFlagName );
         final TreeItem<String> menu1 = new TreeItem<String>("id:" + id);
         final TreeItem<String> menu2 = new TreeItem<String>("constantFlagName:" + constantFlagName);
         final TreeItem<String> menu3 = getAllConstantVal();
@@ -110,15 +110,13 @@ public class ConstantPool {
             for (HashMap val: constantVal){
                 Map map = val;
                 Iterator iter = map.entrySet().iterator();
-                final TreeItem<String> menu0 = new TreeItem<String>(val.toString());
                 while (iter.hasNext()) {
                     Map.Entry entry = (Map.Entry) iter.next();
                     Object key = entry.getKey();
                     Object value = entry.getValue();
                     final TreeItem<String> menu1 = new TreeItem<String>(key + ": " + value);
-                    menu0.getChildren().addAll(menu1);
+                    menu.getChildren().addAll(menu1);
                 }
-                menu.getChildren().addAll(menu0);
             }
         }
         menu.setExpanded(true);
