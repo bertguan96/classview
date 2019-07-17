@@ -11,10 +11,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.scene.text.TextBuilder;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -40,7 +42,7 @@ public class BaseUI extends Application {
     final static String TITLE = "classview";
     Stage primaryStage;
     BorderPane root;
-    ClassFile file1;
+    TabPane tabPane;
 
     public static void main(String[] args){
         launch(args);
@@ -111,20 +113,21 @@ public class BaseUI extends Application {
                         String stringBytes = classView.getStrings(bytes);
                         String result = DisplayAll(stringBytes);
                         ScrollPane sp = new ScrollPane();
-                        sp.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+                        sp.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
                         sp.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
                         Text t = new Text();
                         t.setWrappingWidth(750);
-                        t.setX(50);
-                        t.setY(50);
+//                        t.setX(50);
+//                        t.setY(50);
+                        t.setTextAlignment(TextAlignment.CENTER);
+                        t.setFont(Font.font("Tahoma", 13));
                         t.setText(result);
-                        t.setFont(new Font(13));
                         sp.setContent(t);
 
 
                         //创建一个列
                         TreeTableColumn<String,String> column = new TreeTableColumn<>("Column");
-                        column.setPrefWidth(450);
+                        column.setPrefWidth(400);
 
                         //定义列的单元格内容
                         column.setCellValueFactory((TreeTableColumn.CellDataFeatures<String, String> p) ->
@@ -133,11 +136,12 @@ public class BaseUI extends Application {
 
                         //必须加这个，不然不显示！！
                         treeTableView.getColumns().add(column);
-                        treeTableView.setMinWidth(450);
+                        treeTableView.setMinWidth(400);
                         treeTableView.setMinHeight(600);
                         treeTableView.setShowRoot(true);
 
                         centerVBox.getChildren().addAll(sp,t);
+                        centerVBox.setVgrow(t, Priority.ALWAYS);
                         root.setLeft(treeTableView);
                         root.setCenter(centerVBox);
                     } catch (IOException e) {
@@ -177,15 +181,6 @@ public class BaseUI extends Application {
         return helpMenu;
     }
 
-    private Menu getAllMessage(ClassFile classFile){
-        Menu menu = new Menu(classFile.getClass().getName());
-        for(Field field : classFile.getClass().getDeclaredFields()){
-            Menu menu1 = new Menu(field.getName());
-            menu.getItems().addAll(menu1);
-        }
-
-        return menu;
-    }
 
     private String DisplayAll(String value){
 
