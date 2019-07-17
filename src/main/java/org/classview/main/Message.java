@@ -4,6 +4,7 @@ import org.classview.core.entity.ClassFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * @author gjt
@@ -18,4 +19,11 @@ public interface Message {
      * @return
      */
     Object getMessage(File file) throws IOException;
+
+    /**
+     * 获取字符串
+     * @param bytes
+     * @return
+     */
+    String getStrings(List<String> bytes);
 }

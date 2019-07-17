@@ -45,7 +45,6 @@ public class ConstantPool {
     }
 
     public void setConstantFlagName(String constantFlagName) {
-        setId(id++);
         this.constantFlagName = constantFlagName;
     }
 

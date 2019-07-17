@@ -59,6 +59,7 @@ public class ConstantInfo{
         }
         ConstantPool constantPool = new ConstantPool();
         constantPool.setConstantFlag(tag);
+        constantPool.setId(i);
         ConstantMemberInfo memberSize = ConstantInfo.getConstantInfoIndex(tag);
         constantPool.setConstantFlagName(memberSize.getConstantName());
         int index = ClassView.index;

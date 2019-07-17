@@ -18,9 +18,10 @@ import java.util.List;
  */
 public class ClassView implements Message {
 
-
+    // 默认从11开始，因为之前几个都是固定的。。
     public static int index = 11;
 
+    @Override
     public String getStrings( List<String> bytes){
         StringBuffer stringBuffer = new StringBuffer();
         for(String byte1:bytes){

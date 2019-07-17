@@ -32,7 +32,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>org.classview.main.ClassView</mainClass>
+                            <mainClass>org.classview.ui.BaseUI</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
