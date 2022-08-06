@@ -1,6 +1,4 @@
-package org.classview.main;
-
-import org.classview.core.entity.ClassFile;
+package org.classview.core.api;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,7 +10,7 @@ import java.util.List;
  * @date 2019/7/16 11:16
  * @Description 这里写描述内容
  */
-public interface Message {
+public interface ClassViewMessage {
     /**
      * 获取基础信息
      * @param file

@@ -5,7 +5,7 @@ import com.alibaba.fastjson.JSONArray;
 import org.classview.core.entity.ConstantMemberInfo;
 import org.classview.core.entity.ConstantPool;
 import org.classview.core.entity.TagInfo;
-import org.classview.main.ClassView;
+import org.classview.core.api.ClassViewImpl;
 import org.classview.utils.FileUtils;
 import org.classview.utils.HexUtils;
 
@@ -37,10 +37,9 @@ public class ConstantInfo{
         // 循环获取
         for (int i = 1; i < constantPoolCount; i++) {
             // 分析一下常量
-            ConstantInfo.analyticalConstants(ClassView.index, bytes, i);
+            ConstantInfo.analyticalConstants(ClassViewImpl.index, bytes, i);
         }
-        JSONArray array= JSONArray.parseArray(JSON.toJSONString(constantPools));
-        FileUtils.writeConstantInfoByJson(array.toJSONString(),new File(fileName + "_constant_info.json"));
+        FileUtils.writeConstantInfoByJson(JSON.toJSONString(constantPools),new File(fileName + "_constant_info.json"));
         return constantPools;
     }
 
@@ -62,9 +61,9 @@ public class ConstantInfo{
         constantPool.setId(i);
         ConstantMemberInfo memberSize = ConstantInfo.getConstantInfoIndex(tag);
         constantPool.setConstantFlagName(memberSize.getConstantName());
-        int index = ClassView.index;
-        ClassView.index += memberSize.getConstantSize() - 1;
-        String str = FileUtils.readBytesByIndex(bytes,index, ClassView.index);
+        int index = ClassViewImpl.index;
+        ClassViewImpl.index += memberSize.getConstantSize() - 1;
+        String str = FileUtils.readBytesByIndex(bytes,index, ClassViewImpl.index);
         constantPool.setConstantAddress(str);
         String[] constantMemberTypes = memberSize.getConstantType().split(";");
         int memberIndex = 0;
@@ -86,8 +85,8 @@ public class ConstantInfo{
             }
             if(menberType.equals("u1")){
                 int typeSize = 4;
-                ClassView.index = ClassView.index + u1Size - 1;
-                String newStr = FileUtils.readBytesByIndex(bytes,index, ClassView.index);
+                ClassViewImpl.index = ClassViewImpl.index + u1Size - 1;
+                String newStr = FileUtils.readBytesByIndex(bytes,index, ClassViewImpl.index);
                // 这里地址重新赋值
                 constantPool.setConstantAddress(newStr);
                 int strLen = newStr.length()/2;
@@ -129,7 +128,7 @@ public class ConstantInfo{
         }
         constantPool.setConstantVal(constantVal);
         constantPools.add(constantPool);
-        ClassView.index += 1;
+        ClassViewImpl.index += 1;
     }
 
     /**
@@ -152,7 +151,7 @@ public class ConstantInfo{
     private static int getTag(int index,String bytes) {
         String tagAddr = FileUtils.readBytesByIndex(bytes,index,index);
         int tagNumber = Integer.parseInt( tagAddr, 16);
-        ClassView.index = index + 1;
+        ClassViewImpl.index = index + 1;
         return tagNumber;
     }
 

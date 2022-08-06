@@ -1,8 +1,5 @@
 package org.classview.core.entity;
 
-import javafx.scene.control.Menu;
-import javafx.scene.control.TreeItem;
-
 import java.util.Arrays;
 import java.util.List;
 
@@ -196,45 +193,4 @@ public class ClassFile {
                 ", constantInfoCount=" + constantInfoCount + '\n' +
                 '}';
     }
-
-    public TreeItem<String> getFileMsg(){
-
-        final TreeItem<String> menu = new TreeItem<String>("ClassFile");
-        final TreeItem<String> menu1 = new TreeItem<String>("magic:" + magic);
-        final TreeItem<String> menu2 = new TreeItem<String>("minorVersion:" + minorVersion);
-        final TreeItem<String> menu3 = new TreeItem<String>("majorVersion:" + majorVersion);
-        final TreeItem<String> menu0 = new TreeItem<String>("constantPoolCount:" + constantPools.size());
-        final TreeItem<String> menu4 = getAllConstantPool();
-        final TreeItem<String> menu5 = new TreeItem<String>("accessFlags:" + accessFlags);
-        final TreeItem<String> menu6 = new TreeItem<String>("thisClass:" + thisClass);
-        final TreeItem<String> menu7 = new TreeItem<String>("superClass:" + superClass);
-        final TreeItem<String> menu8 = new TreeItem<String>("interfaceClass:" + interfaceClass );
-        final TreeItem<String> menu9 = new TreeItem<String>("fields:" + Arrays.toString(fields));
-        final TreeItem<String> menu10 = new TreeItem<String>("methods:" + Arrays.toString(methods));
-        final TreeItem<String> menu11 = new TreeItem<String>("attributes:" + Arrays.toString(attributes));
-        final TreeItem<String> menu12 = new TreeItem<String>("interfaceCount:" + interfaceCount);
-        final TreeItem<String> menu13 = new TreeItem<String>("fieldsCount:" + fieldsCount);
-        final TreeItem<String> menu14 = new TreeItem<String>("constantInfoCount:" + constantInfoCount);
-        menu.setExpanded(true);
-
-        menu.getChildren().addAll(menu1,menu2,menu3,menu0,menu4,menu5,menu6,menu7,menu8,menu9,menu10,menu11,menu12,menu13,menu14);
-        return menu;
-    }
-
-    public TreeItem<String> getAllConstantPool(){
-        int i = 1;
-        final TreeItem<String> menu = new TreeItem<String>("ConstantPool");
-        if(constantPools != null){
-            for(ConstantPool constantPool : constantPools){
-
-                final TreeItem<String> menu1 = constantPool.getAllPool(i);
-                menu.getChildren().addAll(menu1);
-                i++;
-            }
-        }
-        menu.setExpanded(true);
-
-        return menu;
-    }
-
 }

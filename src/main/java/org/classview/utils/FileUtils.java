@@ -1,27 +1,19 @@
 package org.classview.utils;
 
 import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
 /**
  * @author gjt
  * @version 1.0
- * @date 2019/7/10 17:38
- * @Description 文件工具类
+ * @message File tools
  */
 public class FileUtils {
 
     /**
      * 文件读取方法，返回的是字节码的16进制形式
-     * @param filepath
-     * @return
-     * @throws IOException
+     * @param filepath 读取路径
      */
     public static List<String> readClassFile(String filepath) throws IOException {
 
@@ -45,7 +37,7 @@ public class FileUtils {
         char[] bytesCharArrys = sw.toString().toUpperCase().toCharArray();
         // 一行的字符
         StringBuffer byteReaderOneLine = new StringBuffer();
-        List<String> bytes = new LinkedList<>();
+        List<String> bytes = new LinkedList<String>();
         for (int i = 0; i < sw.toString().length(); i++) {
             if(i %32 == 0 && i != 0) {
                 bytes.add(byteReaderOneLine.toString());
@@ -56,7 +48,6 @@ public class FileUtils {
                 byteReaderOneLine.append(bytesCharArrys[i]);
             }
         }
-//        System.out.println(bytes.toString());
         return bytes;
     }
 
@@ -70,12 +61,6 @@ public class FileUtils {
     public static String readBytesByIndex(String bytes, int startIndex,int endIndex) {
         return bytes.substring((startIndex-1)*2,endIndex*2);
     }
-
-//    public static void main(String[] args) throws IOException {
-//        String filepath = "C:\\Users\\gjt\\Desktop\\ClassFileTest.class";
-//
-//        FileUtils.readClassFile(filepath);
-//    }
 
     /**
      * json格式输出文件（常量池）
