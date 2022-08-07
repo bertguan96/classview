@@ -1,10 +1,7 @@
-package org.classview.core.info;
+package org.classview.core.entity.info;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
-import org.classview.core.entity.ConstantMemberInfo;
 import org.classview.core.entity.ConstantPool;
-import org.classview.core.entity.TagInfo;
 import org.classview.core.api.ClassViewImpl;
 import org.classview.utils.FileUtils;
 import org.classview.utils.HexUtils;
@@ -35,7 +32,7 @@ public class ConstantInfo{
         // 获得常量池数量
         Integer constantPoolCount = constantPoolNumber(bytes) - 1;
         // 循环获取
-        for (int i = 1; i < constantPoolCount; i++) {
+        for (int i = 1; i <= constantPoolCount; i++) {
             // 分析一下常量
             ConstantInfo.analyticalConstants(ClassViewImpl.index, bytes, i);
         }

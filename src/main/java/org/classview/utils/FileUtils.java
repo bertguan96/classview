@@ -56,10 +56,12 @@ public class FileUtils {
      * @param bytes  字符串
      * @param startIndex  开始位置
      * @param endIndex  结束位置 (默认*2 一个字节8位，这里是16进制，4*8 = 32 位，32/16 = 2)
-     * @return
      */
     public static String readBytesByIndex(String bytes, int startIndex,int endIndex) {
-        return bytes.substring((startIndex-1)*2,endIndex*2);
+        Integer start = (startIndex-1) * 2;
+        Integer end = endIndex * 2;
+        String byteString = bytes.substring(start, end);
+        return byteString;
     }
 
     /**

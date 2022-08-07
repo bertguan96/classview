@@ -1,4 +1,4 @@
-package org.classview.core.info;
+package org.classview.core.entity.info;
 
 import org.classview.core.entity.ClassFile;
 import org.classview.utils.FileUtils;

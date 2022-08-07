@@ -1,5 +1,9 @@
 package org.classview.core.entity;
 
+import org.classview.core.entity.info.AttributeInfo;
+import org.classview.core.entity.info.FieldInfo;
+import org.classview.core.entity.info.MemberInfo;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -58,9 +62,40 @@ public class ClassFile {
 
     private int interfaceCount;
 
+    private Interfaces[] interfaces;
+
     private int fieldsCount;
 
+    private FieldInfo[] fieldInfos;
+
     private int constantInfoCount;
+
+    private int methodCount;
+
+    public int getMethodCount() {
+        return methodCount;
+    }
+
+    public void setMethodCount(int methodCount) {
+        this.methodCount = methodCount;
+    }
+
+    public FieldInfo[] getFieldInfos() {
+        return fieldInfos;
+    }
+
+    public void setFieldInfos(FieldInfo[] fieldInfos) {
+        this.fieldInfos = fieldInfos;
+    }
+
+    public Interfaces[] getInterfaces() {
+        return interfaces;
+    }
+
+    public void setInterfaces(Interfaces[] interfaces) {
+        this.interfaces = interfaces;
+    }
+
 
     public int getInterfaceCount() {
         return interfaceCount;

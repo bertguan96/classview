@@ -5,23 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0fdd9d14-9b85-40ab-bfb7-e44da05ff9fb" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Demo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/classview/CreateMessageReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/classview/core/entity/Interfaces.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/classview/core/entity/info/FieldInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Demo_constant_info.json" beforeDir="false" afterPath="$PROJECT_DIR$/Demo_constant_info.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/classview/core/api/ClassViewImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/classview/core/api/ClassViewImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/classview/core/entity/AccFlag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/classview/core/entity/AccFlag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/classview/core/entity/AttributeInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/classview/core/entity/info/AttributeInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/classview/core/entity/ClassFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/classview/core/entity/ClassFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/classview/core/entity/ConstantPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/classview/core/entity/ConstantPool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/classview/core/info/ConstantInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/classview/core/info/ConstantInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/classview/main/ClassView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/classview/core/api/ClassViewImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/classview/main/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/classview/core/api/ClassViewMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/classview/main/MessageFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/classview/ui/AboutDialog.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/classview/ui/BaseUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/classview/core/entity/ConstantMemberInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/classview/core/entity/info/ConstantMemberInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/classview/core/entity/Interfaces.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/classview/core/entity/Interfaces.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/classview/core/entity/MemberInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/classview/core/entity/info/MemberInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/classview/core/entity/TagInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/classview/core/entity/info/TagInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/classview/core/info/BaseInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/classview/core/entity/info/BaseInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/classview/core/info/ConstantInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/classview/core/entity/info/ConstantInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/classview/utils/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/classview/utils/FileUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +39,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -246,7 +251,7 @@
       <workItem from="1563277150380" duration="2573000" />
       <workItem from="1563355838673" duration="247000" />
       <workItem from="1659782698151" duration="766000" />
-      <workItem from="1659799903137" duration="4148000" />
+      <workItem from="1659799903137" duration="14854000" />
     </task>
     <servers />
   </component>
@@ -305,13 +310,18 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/classview/core/api/ClassViewImpl.java</url>
-          <line>60</line>
-          <option name="timeStamp" value="3" />
+          <line>93</line>
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/classview/core/api/ClassViewImpl.java</url>
-          <line>70</line>
-          <option name="timeStamp" value="4" />
+          <line>90</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/classview/core/entity/AccFlag.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

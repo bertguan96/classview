@@ -1,5 +1,8 @@
 package org.classview.core.entity;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author gjt
  * @version 1.0
@@ -7,37 +10,28 @@ package org.classview.core.entity;
  * @Description flag常量
  */
 public class AccFlag {
-    /**
-     * 是否为public类型
-     */
-    public static final String ACC_PUBLIC = "0x0001";
-    /**
-     * 是否被声明为final，只有类可设置
-     */
-    public static final String ACC_FINAL = "0x0010";
-    /**
-     * 是否允许使用invokespecial字节码指令，JDK1.2以后编译出来的类这个标志为真
-     */
-    public static final String ACC_SUPER = "0x0020";
-    /**
-     * 标识这是一个接口
-     */
-    public static final String ACC_INTERFACE = "0x0200";
-    /**
-     * 是否为abstract类型，对于接口和抽象类，此标志为真，其它类为假
-     */
-    public static final String ACC_ABSTRACT = "0x0400";
-    /**
-     * 标识别这个类并非由用户代码产生
-     */
-    public static final String ACC_SYNTHETIC = "0x1000";
-    /**
-     * 标识这是一个注解
-     */
-    public static final String ACC_ANNOTATION = "0x2000";
-    /**
-     * 标识这是一个枚举
-     */
-    public static final String ACC_ENUM = "0x4000";
 
+    private static Map<String, String> accFlagMap = new HashMap<>();
+
+    static  {
+        accFlagMap.put("0001", "ACC_PUBLIC");
+        accFlagMap.put("0010", "ACC_FINAL");
+        accFlagMap.put("0020", "ACC_SUPER");
+        accFlagMap.put("0200", "ACC_INTERFACE");
+        accFlagMap.put("0400", "ACC_ABSTRACT");
+        accFlagMap.put("1000", "ACC_SYNTHETIC");
+        accFlagMap.put("2000", "ACC_ANNOTATION");
+        accFlagMap.put("4000", "ACC_ENUM");
+
+        accFlagMap.put("0002", "ACC_PRIVATE");
+        accFlagMap.put("0004", "ACC_PROTECTED");
+        accFlagMap.put("0008", "ACC_STATIC");
+
+        accFlagMap.put("0040", "ACC_VOLATILE");
+        accFlagMap.put("0080", "ACC_TRANSIENT");
+    }
+
+    public static String getAccFlag(String attr) {
+        return accFlagMap.get(attr);
+    }
 }
