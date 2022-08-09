@@ -7,4 +7,30 @@ package org.classview.core.entity.info;
  * @Description 这里写描述内容
  */
 public class AttributeInfo {
+
+    private String attributeNameIndex;
+
+    private String attributeLength;
+
+    private String info;
+
+    public String getAttributeNameIndex() {
+        return attributeNameIndex;
+    }
+
+    public void setAttributeNameIndex(String attributeNameIndex) {
+        this.attributeNameIndex = attributeNameIndex;
+    }
+
+    public String getAttributeLength() {
+        return attributeLength;
+    }
+
+    public void setAttributeLength(String attributeLength) {
+        this.attributeLength = attributeLength;
+    }
+
+    public String getInfo() {
+        return info;
+    }
 }

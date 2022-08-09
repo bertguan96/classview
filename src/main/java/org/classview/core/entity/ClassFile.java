@@ -3,6 +3,7 @@ package org.classview.core.entity;
 import org.classview.core.entity.info.AttributeInfo;
 import org.classview.core.entity.info.FieldInfo;
 import org.classview.core.entity.info.MemberInfo;
+import org.classview.core.entity.info.MethodInfo;
 
 import java.util.Arrays;
 import java.util.List;
@@ -71,6 +72,36 @@ public class ClassFile {
     private int constantInfoCount;
 
     private int methodCount;
+
+    private MethodInfo[] memberInfos;
+
+    private int attributesCount;
+
+    private AttributeInfo[] attributeInfos;
+
+    public MethodInfo[] getMemberInfos() {
+        return memberInfos;
+    }
+
+    public void setMemberInfos(MethodInfo[] memberInfos) {
+        this.memberInfos = memberInfos;
+    }
+
+    public int getAttributesCount() {
+        return attributesCount;
+    }
+
+    public void setAttributesCount(int attributesCount) {
+        this.attributesCount = attributesCount;
+    }
+
+    public AttributeInfo[] getAttributeInfos() {
+        return attributeInfos;
+    }
+
+    public void setAttributeInfos(AttributeInfo[] attributeInfos) {
+        this.attributeInfos = attributeInfos;
+    }
 
     public int getMethodCount() {
         return methodCount;

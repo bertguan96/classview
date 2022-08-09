@@ -7,6 +7,7 @@ import org.classview.core.entity.info.BaseInfo;
 import org.classview.core.entity.info.ConstantInfo;
 import org.classview.core.entity.ClassFile;
 import org.classview.core.entity.info.FieldInfo;
+import org.classview.core.entity.info.MethodInfo;
 import org.classview.utils.FileUtils;
 
 import java.io.File;
@@ -82,16 +83,51 @@ public class ClassViewImpl implements ClassViewMessage {
             index += 1;
         }
 
-        Integer fieldsCount = classFile.getFieldsCount();
-        for (int i = 0; i < fieldsCount; i++) {
+        Integer fieldCount = classFile.getFieldsCount();
+        FieldInfo[] fieldInfos = new FieldInfo[fieldCount];
+        for (int i = 0; i < fieldCount; i++) {
             FieldInfo fieldInfo = new FieldInfo();
             String accFlag = FileUtils.readBytesByIndex(stringBytes, index, index += 1);
             fieldInfo.setAccessFlags(AccFlag.getAccFlag(accFlag));
             index += 1;
+            String nameIndex = FileUtils.readBytesByIndex(stringBytes, index, index += 1);
+            fieldInfo.setNameIndex(Integer.parseInt(nameIndex, 16));
             index += 1;
+            String descriptorIndex =  FileUtils.readBytesByIndex(stringBytes, index, index += 1);
+            fieldInfo.setDescriptorIndex(Integer.parseInt(descriptorIndex, 16));
+            index += 1;
+            String attributesCount =  FileUtils.readBytesByIndex(stringBytes, index, index += 1);
+            fieldInfo.setAttributesCount(Integer.parseInt(attributesCount, 16));
+            fieldInfo.setAttributes(null); // 暂时先设置为空，
+            index += 1;
+            fieldInfos[i] = fieldInfo;
         }
-//        String methods = FileUtils.readBytesByIndex(stringBytes, index, index += 1);
-//        System.out.println(methods);
+        classFile.setFieldInfos(fieldInfos);
+        String method_counts = FileUtils.readBytesByIndex(stringBytes, index, index += 1);
+        classFile.setMethodCount(Integer.parseInt(method_counts, 16));
+        index += 1;
+
+        Integer methodCount = classFile.getMethodCount();
+        MethodInfo[] methodInfos = new MethodInfo[methodCount];
+        for (int i = 0; i < methodCount; i++) {
+            MethodInfo methodInfo = new MethodInfo();
+            String accFlag = FileUtils.readBytesByIndex(stringBytes, index, index += 1);
+            methodInfo.setAccessFlags(AccFlag.getAccFlag(accFlag));
+            index += 1;
+            String nameIndex = FileUtils.readBytesByIndex(stringBytes, index, index += 1);
+            methodInfo.setNameIndex(Integer.parseInt(nameIndex, 16));
+            index += 1;
+            String descriptorIndex =  FileUtils.readBytesByIndex(stringBytes, index, index += 1);
+            methodInfo.setDescriptorIndex(Integer.parseInt(descriptorIndex, 16));
+            index += 1;
+            String attributesCount =  FileUtils.readBytesByIndex(stringBytes, index, index += 1);
+            methodInfo.setAttributesCount(Integer.parseInt(attributesCount, 16));
+            methodInfo.setAttributes(null); // 暂时先设置为空，
+            index += 1;
+            methodInfos[i] = methodInfo;
+        }
+        classFile.setMemberInfos(methodInfos);
+        System.out.println(method_counts);
         return classFile;
     }
 }
