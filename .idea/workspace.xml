@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0fdd9d14-9b85-40ab-bfb7-e44da05ff9fb" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/classview/core/entity/info/AbstractValueInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/classview/core/entity/info/Info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/classview/core/entity/info/MethodInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/classview/core/api/ClassViewImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/classview/core/api/ClassViewImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/classview/core/entity/ClassFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/classview/core/entity/ClassFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/classview/core/entity/info/AttributeInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/classview/core/entity/info/AttributeInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/classview/core/entity/info/FieldInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/classview/core/entity/info/FieldInfo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -245,7 +239,7 @@
       <workItem from="1563277150380" duration="2573000" />
       <workItem from="1563355838673" duration="247000" />
       <workItem from="1659782698151" duration="766000" />
-      <workItem from="1659799903137" duration="18288000" />
+      <workItem from="1659799903137" duration="18762000" />
     </task>
     <servers />
   </component>
@@ -298,22 +292,6 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/classview/core/api/ClassViewImpl.java</url>
-          <line>129</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/classview/core/api/ClassViewImpl.java</url>
-          <line>105</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/org/classview/core/info/ConstantInfo.java">

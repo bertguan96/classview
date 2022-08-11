@@ -127,7 +127,11 @@ public class ClassViewImpl implements ClassViewMessage {
             methodInfos[i] = methodInfo;
         }
         classFile.setMemberInfos(methodInfos);
-        System.out.println(method_counts);
+        // 获取属性数量
+        String attributesCounts =  FileUtils.readBytesByIndex(stringBytes, index, index += 1);
+        classFile.setAttributesCount(Integer.parseInt(attributesCounts, 16));
+        index += 1;
+        // 获取属性详情
         return classFile;
     }
 }
